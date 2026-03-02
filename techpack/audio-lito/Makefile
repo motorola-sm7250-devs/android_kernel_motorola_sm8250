@@ -1,4 +1,3 @@
-ifneq ($(or $(CONFIG_NIO_DTB),$(CONFIG_PSTAR_DTB)),y)
 # auto-detect subdirs
 ifeq ($(CONFIG_ARCH_SDXPOORWILLS), y)
 include $(srctree)/techpack/audio/config/sdxpoorwillsauto.conf
@@ -98,4 +97,3 @@ obj-y += soc/
 obj-y += dsp/
 obj-y += ipc/
 obj-y += asoc/
-endif
