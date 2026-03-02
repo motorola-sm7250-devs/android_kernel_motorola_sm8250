@@ -31,10 +31,6 @@ ifeq ($(filter-out $(CONFIG_NIO_DTB) $(CONFIG_PSTAR_DTB), y),)
 include $(srctree)/techpack/audio/config/konanio.conf
 export $(shell sed 's/=.*//' $(srctree)/techpack/audio/config/konanio.conf)
 endif
-ifeq ($(filter-out $(CONFIG_KIEV_DTB) $(CONFIG_NAIRO_DTB), y),)
-include $(srctree)/techpack/audio/config/litokiev.conf
-export $(shell sed 's/=.*//' $(srctree)/techpack/audio/config/litokiev.conf)
-endif
 
 # Use USERINCLUDE when you must reference the UAPI directories only.
 USERINCLUDE     += \
@@ -78,19 +74,6 @@ endif
 ifeq ($(filter-out $(CONFIG_NIO_DTB) $(CONFIG_PSTAR_DTB), y),)
 LINUXINCLUDE    += \
                 -include $(srctree)/techpack/audio/config/konanio.h
-endif
-ifeq ($(CONFIG_KIEV_DTB), y)
-LINUXINCLUDE    += \
-                -include $(srctree)/techpack/audio/config/litokiev.h
-endif
-ifeq ($(CONFIG_NAIRO_DTB), y)
-LINUXINCLUDE    += \
-                -include $(srctree)/techpack/audio/config/litokiev.h \
-                -include $(srctree)/techpack/audio/config/litonairo_asoc.h
-endif
-ifeq ($(CONFIG_SMITH_DTB), y)
-LINUXINCLUDE    += \
-                -include $(srctree)/techpack/audio/config/litosmith.h
 endif
 
 obj-y += soc/

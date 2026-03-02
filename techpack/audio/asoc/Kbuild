@@ -158,11 +158,7 @@ endif
 endif
 
 ifdef CONFIG_SND_SOC_LITO
-ifeq ($(CONFIG_SMITH_DTB), y)
-	MACHINE_OBJS += lito-smith.o
-else
-	MACHINE_OBJS += lito.o
-endif
+	MACHINE_OBJS += kona.o
 endif
 
 # for BENGAL sound card driver
